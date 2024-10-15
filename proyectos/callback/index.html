@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicios de Callbacks</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      button {
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ejercicios de Callbacks</h1>
+
+    <button
+      onclick="mostrarMensaje('Este es un mensaje de prueba', console.log)"
+    >
+      Ejercicio 1
+    </button>
+    <button
+      onclick="tipoDeDato(42, (tipo, contenido) => console.log(`El tipo de dato es: ${tipo} y su contenido es: ${contenido}`))"
+    >
+      Ejercicio 2
+    </button>
+    <button onclick="console.log(operaciones(10, 5, (a, b) => a + b))">
+      Ejercicio 3 - Suma
+    </button>
+    <button
+      onclick="console.log(ordenSuperior('PejeLagarto', str => str.toLowerCase()))"
+    >
+      Ejercicio 4 - Minus
+    </button>
+    <button
+      onclick="filtrarTiempo([120, 80, 200, 100], (resultado) => console.log('Tiempos mayores a 2 horas:', resultado))"
+    >
+      Ejercicio 5
+    </button>
+
+    <script>
+      function mostrarMensaje(mensaje, callback) {
+        callback(mensaje);
+      }
+
+      function tipoDeDato(variable, callback) {
+        const tipo = typeof variable;
+        callback(tipo, variable);
+      }
+
+      function operaciones(num1, num2, callback) {
+        return callback(num1, num2);
+      }
+
+      function ordenSuperior(cadena, callback) {
+        return callback(cadena);
+      }
+
+      function filtrarTiempo(tiempos, callback) {
+        const mayoresDosHoras = tiempos.filter((tiempo) => tiempo > 120);
+        callback(mayoresDosHoras);
+      }
+    </script>
+  </body>
+</html>
